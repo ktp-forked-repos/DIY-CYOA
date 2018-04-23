@@ -1,0 +1,11 @@
+Welcome to "CHIP", a Choose-Your-Own-Adventure game!
+
+Instructions for use:
+1. You must be using a Windows computer!
+
+2. Unzip the folder CHIP. 
+
+3. Doubleclick on the file "chip" to open it. Please keep the chip.exe file inside the CHIP folder with the .dll files or else the program won't work!
+
+4. Start playing and enjoy!
+
