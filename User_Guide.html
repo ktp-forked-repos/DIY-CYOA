@@ -1,0 +1,321 @@
+<html>
+	<head>
+		<title>Guide to Creating a Choose-Your-Own-Adventure in Prolog</title>
+		<style>
+			.center {
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="center">
+		<h1>Guide to Creating a Choose-Your-Own-Adventure in Prolog</h1>
+		<h2>by Stephanie Price</h2>
+		<h3>Version 1.0.0<br>
+		Last update: 22/04/2018</h3>
+		</div>
+		<br><br>
+		<div class="center"><h2>Table of Contents</h2>
+<h4>
+<a href="#1.0"><b>1.0</b> Introduction</a><br>
+<a href="#1.1"><b>1.1</b> Uses </a><br>
+<a href="#1.2"><b>1.2</b> Strengths</a><br>
+<a href="#1.3"><b>1.3</b> Weaknesses</a><br>
+<a href="#1.4"><b>1.4</b> How to Play</a><br>
+<a href="#2.0"><b>2.0</b> Composing a Story</a><br>
+<a href="#2.1"><b>2.1</b> Story Ideas</a><br>
+<a href="#3.0"><b>3.0</b> Writing Programs</a><br>
+<a href="#3.1"><b>3.1</b> Program Rules</a><br>
+<a href="#3.2"><b>3.2</b> Formatting Tips</a><br>
+<a href="#3.3"><b>3.3</b> Language Support</a><br>
+<a href="#3.4"><b>3.4</b> Conversion to .exe</a><br>
+<a href="#4.0"><b>4.0</b> Tips<br>
+
+</h4></div>
+
+<a name="1.0"><h2>1.0 Introduction</h2></a>
+Welcome! This is the documentation for creating a <i>Choose Your Own Adventure</i> (CYOA) interactive story using SWI-Prolog. I have created an example of a game, <b>CHIP</b>, for you to play and witness for yourself the capabilities of CYOA interactive stories written in the Prolog logical programming language. This documentation will outline the uses of these adventures, the strengths, weaknesses, and capabilities of this program for text adventures, and most importantly, the details on how to make your own adventure starting from first crafting the story to the individual rules in the program. Let's begin!
+<br><br>
+Some useful tools we will be referring to in this guide:<br>
+1. An fully-functioning example program (Sample.pl and its knowledge bases KB_ITA, KB_ESP, and KB_ENG). This contains a complete story translated in three languages.<br>
+2. A template program for you to build your own (Shell.pl and Shell_KB.pl).
+<br><br>
+You will need:<br>
+SWI-Prolog compiler, available as a free download from <a href="http://www.swi-prolog.org/">http://www.swi-prolog.org/</a><br>
+Notepad++ or another text editor of your choosing. Notepad++ can be downloaded for free from <a href="https://notepad-plus-plus.org/">https://notepad-plus-plus.org/</a>
+
+<a name="1.1"><h2>1.1 Uses</h2></a>
+Why would you want to craft your own CYOA story and what could you do with it? There's many reasons! Here's just a few:
+<br>
+<ol>
+<li>To make your stories more interesting and engaging for your readers</li>
+<li>To create unique and highly personalized gifts for friends and family</li>
+<li>To write fanfiction</li>
+<li>To create your own games</li>
+<li>To practice a foreign language</li>
+</ol>
+
+<a name="1.2"><h2>1.2 Strengths</h2></a>
+The strengths and weaknesses refer to the capabilities of this particular program and the template provided, not of the capabilities of SWI-Prolog.
+
+<ol>
+<li> Simple design. For a CYOA supporting one language, there are only 2 rules total. Almost all of the program's complexity comes from the knowledge base and that is dependent solely on how complicated your story is.</li>
+<li>Makes writing more fun</li>
+<li>Makes reading more fun</li>
+<li>Can support multiple languages</li>
+<li>Users can switch languages at any time</li>
+<li>Excellent way to practice reading and writing foreign languages</li>
+<li>Introduces users to logic-based programming in a highly relevant way</li>
+<li>Can support endless complexity and creativity in story outcomes and options</li>
+<li>Supports multiple action types at each node.</li>
+<li>Small size</li>
+<li>Easy for users to use the program</li>
+<li>Easy for users to make their own program</li>
+<li>Small size (the .exe game and its required files are only 32 MB!)</li>
+<li>Fast</li>
+<li>Compatible with users using screen readers. </li>
+<li>Text-based, typing-only.</li>
+<li>Can start at any point in the story and can easily go back to a previous point in the story. </li>
+<li>This is a completely free program for others to use and no advertisements!</li>
+</ol>
+<a name="1.3"><h2>1.3 Weaknesses</h2></a>
+<ol>
+<li>No GUI support with this program.</li>
+<li>No ability to carry over changing values. For example, no capability of having a modifiable inventory list or health hitpoints.</li>
+<li>No user input features (such as custom character names)</li>
+<li>No clicking, which may be more difficult for some people to use. </li>
+<li>Syntax limitations. For example, action codes can never start with a capital letter, can never contain spaces, and must end with a full stop.</li>
+<li>Lack of robustness to user mistakes; any typos will kick the user out from the read-write loop for input. </li>
+<li>No word-wrap with Prolog interface, so reading is less than optimal.</li> 
+<li>No text markup (bolding, italicizing, underlining, font type or size changing) possible</li>
+</ol>
+
+<a name="1.4"><h2>1.4 How to Play</h2></a>
+<h3>From .exe (Windows only) </h3>
+Use this option if you <b>do not</b> have SWI-Prolog installed. You only need SWI-Prolog installed if you want to make your own CYOA or if you are wanting to play the game on a non-Windows operating system.
+<h4>Step 1: </h4> 
+Unzip the folder CHIP.
+<h4>Step 2: </h4>
+Doubleclick on the file "chip" to open it. Please keep the chip.exe file inside the CHIP folder with the .dll files or else the program won't work!
+<h4> Step 3: </h4> 
+Start playing and enjoy!
+
+<h3>From .pl (SWI-Prolog needed) </h3>
+<h4>Step 1: </h4>
+Open SWI-Prolog.
+<h4> Step 2:</h4>
+On the top menu bar, go to File > Consult and select the .pl file. To play the game, you want to select Sample.pl. 
+<h4> Step 3: </h4> 
+Start playing and enjoy!
+
+<h3> Further Details on How to Play </h3>
+
+<ul>
+<li>Carry out an an action by typing the action code followed by a full-stop, then pressing enter. Your input cannot contain capital letters or spaces and must always ends with a full-stop. </li>
+<li>If you typo at any time: <br>
+1. Type a full-top (.) and nothing else and hit the enter key to reset the input system. You will receive an error in red text saying "Syntax Error" and this is supposed to happen! <br>
+2. Type begin. again and hit the enter key. <br>
+3. Type your most recent action code, (example: a0. ) and hit the enter key to return to your last position. </li>
+<li>To exit the program, click the X in the top right-hand corner. Alternatively, you can exit the input system by typing a full-stop (.) and then typing halt. exactly as seen.</li>
+</ul>
+
+<a name="2.0"><h2>2.0 Composing a Story</h2></a>
+<h3>Step 1:</h3>
+Write your story in a separate document. <br>
+You can make it a linear story with only a single ending and only a single action the user can take at any turn. Alternatively, you can make it very complex with multiple plot lines, endings, and actions at every turn. Every crossroads where the user is able to make a decision is called a node, and each node has at least one action possible or is an ending.<br>
+List of possibilities for each node:
+<ol>
+<li>dead-end (such as an ending)</li>
+<li>one-action</li>
+<li>multiple actions all leading to the same succeeding node</li>
+<li>multiple actions each leading to different nodes</li>
+</ol>
+Each of those possibilities has been reflected in the sample story. 
+
+<h3>Step 2:</h3> 
+Assign action codes to every option in your story. Each action needs a code that the user can select. For assigning your action codes, I recommend using a combination of letters and numbers. For instance, if your first node (node a) has 3 actions possible, you could assign the codes to be a1, a2, and a3. Your action codes must begin with a lowercase letter; they cannot begin with an uppercase letter or a number. Once you go through letters a-z, you can double the letters (node aa, ab, ac...zz) or even triple the letters. In that way, the complexity of your story is endless.
+<h3>Step 3:</h3> 
+Draw your story diagram. This is a visual representation of all the possible options in your story. It will help in creating your knowledge base. Another section details different methods to organizing your story diagram.
+<h3>Step 4:</h3>
+Code your knowledge base using the examples in the sample story and in the template provided (Shell_KB.pl).
+<h3>Step 5:</h3> 
+Customize your start screen, help, and introduction screens in the template provided as seen in the sample story.
+
+<a name="2.1"><h2>2.1 Story Ideas</h2></a>
+If you are needing inspiration, here is a list of some story ideas highly compatible with CYOA. 
+<ul>
+<li>Take a walk in a mysterious forest. Where are you going to go?</li>
+<li>You're the king of the country. What are you going to do?</li>
+<li>You have a romantic dinner date with someone at your house. How is it going to go?</li>
+<li>You've been wrongfully imprisoned. How are you going to escape?</li>
+<li>You're stuck on a deserted island. How will you reach civilization?</li>
+<li>A zombie apocalypse has just started. What will you do?</li>
+<li>You've discovered that you have a magical fairy godmother! What will you do?</li>
+<li>You find a genie lamp. What will you wish for?</li>
+<li>You've accepted a quest to deliver a precious package to the neighboring kingdom. What will happen?</li>
+<li>You've bought a piece of land and now you want to create your own homestead. How will it go?</li>
+</ul>
+
+<a name="2.2"><h2>2.2 Story Diagrams</h2></a>
+For a captivating and complex CYOA, the most important part is organizing your story diagram. This helps you write and code for each section without getting yourself confused, as well as helping you keep track of the action going on in each storyline. <br><br>
+Without an organized diagram to guide you, you risk problems such as unintentional dead-ends in your stories and circular plotlines without any ending at all. This can frustrate the user and cause them to quit playing. <br><br>
+Here are some ideas for ways to organize your story's plotlines. These diagrams came from Microsoft Word, which you could use to create your own. Or, you could use these images as inspiration to draw your own diagrams on paper. 
+<br>
+<h3>Circle Hierarchy</h3>
+<img src="diagram1.png" alt="circle hierarchy">
+<h3>Radial Circles</h3>
+<img src="diagram2.png" alt="radial circles">
+<h3>Radial Grouping</h3>
+<img src="diagram3.png" alt="radial grouping">
+<h3>Square Hierarchy</h3>
+<img src="diagram4.png" alt="square hierarchy">
+
+<a name="3.0"><h2>3.0 Writing Programs</h2></a>
+<h3>Using SWI-Prolog:</h3>
+Upon opening the program, you will see a simple text-interface similar to the command prompt. To load your program files, click on the top menu bar: File > Consult and select your program. Prolog files end with extension .pl.<br>
+If you make a change to your code in a different window and want to reload it, go to File > Reload Modified Files. Note that the start screen rule will only run once per instance of Prolog; it will not run a second time upon reloading the modified file. You have to exit SWI-Prolog and then re-enter to see it again.
+<h3>Using Notepad++:</h3>
+You can write your programs here and save the file with a .pl extension. Notepad++ will interpret your file as Perl code but it will still load fine with SWI-Prolog.
+In Prolog, use /* comment */ for multi-line comments and % for single-line comments.
+
+
+<a name="3.1"><h2>3.1 Program Rules</h2></a>
+Explanation of each rule in the program<br><br>
+
+<code> :- set_prolog_flag(encoding, iso_latin_1).</code><br><br>
+Allows for accents in non-English languages. Not necessary if program will not be using a language containing accents or special characters.
+<br><br>
+<code>:- consult('Shell_KB.pl').</code><br><br>
+Imports the knowledge base to use for your program. Keeping your knowledge base in a different file is helpful to avoid cluttering the code of your main program with a lot of text. This especially becomes significant when you have support for multiple languages. However, it is not required.
+<br><br>
+<code>start:-<br>
+    write('Text').<br>
+:- start. </code><br><br>
+This immediately displays text when the program initializes, without need for user input. This is useful for providing immediate instructions on how to interact with the program.
+<br><br>
+<code>begin:-<br>
+	write('Text'),<br> 
+    repeat,<br>
+    read(Input),<br>
+	story(Input, Output),
+    write(Output),<br>
+    fail.</code><br><br>
+This method creates a read-call loop that all the rest of the rules of the program will be run in. Without this, every action would return "true" after the corresponding response. This rule also makes it so that users only need to type the action code (example: a0.) and not the entire rule from the knowledge base (example: story(a0). <br>
+Users can accidentally leave this method if they make a typo (so that their rule does not correspond to any rule the program knows). To return, simply type a full-stop (.) and press enter, then type begin. again and then type the action and action code from your latest turn.<br><br>
+
+
+<a name="3.2"><h2> 3.2 Formatting Tips</h2></a>
+<ul>
+<li> \n creates a line break. However, responses within single quotation marks (' ') are sensitive to whitespace so this is not necessary there.</li>
+<li>\r creates a carriage return (tab). As the above, it is not necessary if it is within single quotation marks.</li>
+<li>To print \n or \r, add an additional \ before them. For example, \\n or \\r. The \ is called an escape sequence.</li>
+<li>Single quotation marks require an escape sequence so that Prolog does not interpret them as the end of your statement. To do so, add a \ before them. For example, \'. </li>
+<li>An escape sequence is not necessary for double quotation marks, (" " ).</li>
+<li> nl in Prolog code creates a newline between writes.</li>
+</ul>
+
+
+<a name="3.3"><h2> 3.3 Language Support</h2></a>
+It is very simple to support multiple languages with this program. <br>
+<h3>(Recommended) Method 1 (as used in Sample and in the Shell template): Keep the same action codes</h3>
+<h4>Step 1:</h4>
+Translate your story into the languages you wish to support. 
+<h4>Step 2:</h4>
+Create a separate knowledge base for each story in each language. This is recommended to keep your code more organized, but it is not mandatory. You can maintain the same action codes.<br>
+You will need to use different names for each rule in the knowledge base to be able to have separate languages. <br>
+For example, as seen in the Sample program, the English knowledge base's rules are called "story". The Spanish knowledge base has its rule called "historia" and the Italian knowledge base has "storia". 
+
+<h4>Step 3:</h4>
+We must also use different rules in the main program so that users can interact with the program in different languages. You will need to create a differently named rule for the text parsing rule, begin (as seen in the Sample program).<br>
+<br>
+For example, as seen in the Sample program, for the original "begin" rule, there were versions for Spanish and Italian named "comenzar" and "iniziare", respectively. 
+<br>
+Additionally, inside the rule, you must modify the line of code connecting the user input to the knowledgebase response. This is because we want users to enter the same action codes no matter the language. As seen in Sample.pl, the code says:<br>
+<code>story(Input, Response)</code><br>
+You want to change "story" for each language you are supporting to correspond with what you titled that rule in the knowledge base. <br>
+Thus for the Spanish rule, it is identical to the English rule except that the same line looks like this:<br>
+<code>historia(Input, Response)</code><br>
+Don't forget that the Spanish rule is named differently too- it is called comenzar instead of begin. 
+
+<h3>Method 2: Keep the same rules, change the action codes</h3>
+You can opt to avoid renaming the rules of your program and instead change the action codes the user has to input. <br>
+For example:<br>
+The English version could have action codes labeled a1.<br>
+The Spanish version could have its action codes labelled aa1, or espa1, or a1_esp, and so forth.<br>
+However, this means the user has a more complicated input so it is less recommended. Another downside is that this will not affect the language of text displayed in the "begin" rule, either.<br>
+
+<h3>For both methods:</h3>
+Many languages will need special characters. To enable this, add the following to your program (as seen in Sample and Shell):<br>
+<code>:- set_prolog_flag(encoding, iso_latin_1). </code>
+<br><br>
+Additionally, you may also need to modify your file to be in UTF-8 encoding format. The knowledge base files and your main file must be in UTF-8. UTF-8 without BOM (byte order mark) does not work. <br><br>
+To do so in Notepad++:<br><br>
+At the top bar, select Format > Coding in UTF-8.
+
+<a name="3.4"><h2>3.4 Conversion into .exe</h2></a>
+This program can be converted into an executable file for use on computers that do not have SWI-Prolog compiler installed. The following is how to create an .exe for Windows operating systems; the instructions for other operating systems can be found in SWI-Prolog user manual. 
+
+<h3>Step 1:</h3>
+Doubleclick on your program's .pl file to open it up in SWI-Prolog. Be careful- this does not appear to work if you instead open up your file by first opening SWI-Prolog and then clicking Consult > File > your file's name. <br><br>
+
+Into SWI-Prolog (not your program), type:<br><br>
+<code>qsave_program(nameOfNewExe, [stand_alone(true), goal(Nameofstartmethod)]).</code><br><br>
+
+qsave_program is a predict that saves the current state of the program to a File. <br>
+nameOfNewExe will be the name of the new executable file you will be generating. Do not add file extensions here (like program.exe); you just need a name. The name cannot start with a capital letter. <br>
+stand_alone(true) indicates that the first part of the state you will be saving is an emulator so that the resulting executable is independent of the runtime environment or location where it was built.<br>
+goal indicates the rule that you want to run in the executable. You will want to put here the name of your method showing the startscreen so that the user knows what to input to begin the story.<br>
+<br>
+An example based on the sample program:<br>
+<code>qsave_program(chip, [stand_alone(true), goal(start)]).</code>
+
+<h3>Step 2:</h3>
+Your .exe file will be saved in the same location as your other Prolog projects. <br>
+However, it cannot be ran unless you have a few files from your Prolog installation in the same folder with it.<br>
+Go to the installation location on your computer for your SWI-Prolog files. You can ask Prolog where it is by typing into SWI-Prolog:<br><br>
+<code>current_prolog_flag(home,Home).</code><br><br>
+Usually the location is C:\Program Files\swipl. <br><br>
+There, navigate to the bin folder and copy the needed files to the folder where your .exe is located. The 9 files needed for my Sample.pl program are:<br><br>
+<code>
+libswipl.dll<br>
+libdwarf.dll<br>
+libgmp-10.dll<br>
+libwinpthread-1.dll<br>
+libgcc_s_seh-1.dll<br>
+plterm.dll<br>
+libgcc_s_seh-1.dll<br>
+libjpeg-9.dll<br>
+pl2xpce.dll<br>
+process.dll<br>
+</code>
+<br><br>
+You will need to test your .exe on a computer without SWI-Prolog installed to ensure that it has the necessary files to run. If you have SWI-Prolog on your own computer, it will run regardless if you are missing necessary files. <br><br>
+If you are having trouble getting your program to run because you are missing files, try this troubleshooting process of necessary vs sufficient:<br>
+1. Create a folder labeled "Exe" that contains your .exe program. <br>
+2. Create a second folder labeled "Trash". <br>
+3. Copy all the files in swipl/bin folder and paste them to your Exe folder. <br>
+4. Remove a small group of files at a time (4-5) from the Exe folder to the Trash folder. <br>
+5. Try running your program to see if it works. If it doesn't, add one file at a time from the Trash folder back to the Exe folder until it does work. The file that made the difference between it running and not running is a necessary file. When it does work, you can delete all the files in your Trash folder and repeat from step 4.
+
+<br><br>
+Now you have a convenient .exe file that anyone can use!
+
+<a name="4.0"><h2>4.0 Tips</h2></a>
+<ul>
+<li>You can import an unlimited number of knowledge bases. Thus, for complex or longer stories you may want to use the knowledge bases for additional organization. For example, a different knowledge base for each chapter or for each storyline. </li><br>
+
+<li>There is capability for some simple character customization options. For example, at the beginning there could be options to select the sex of a character and the name from a list of options. Then write the corresponding story text available for the actions of that branch of the story to use that name and sex. </li><br>
+
+<li>When programming, it is first helpful to write out the rules of your program and the skeleton of your knowledge base (with only the action codes and short responses). Then, run the program and make sure it works as intended. Add the actual story text once you know the program is working. The story text is very long and trying to debug around it will be more difficult. </li><br>
+
+<li>If you leave the program and later want to return to where you left off, all you need to do is remember the action code you last used. </li><br>
+<li>You can switch to a different language at any time simply by exiting the input loop by typing a full stop (.) and hitting enter, then typing the beginning statement for that language. For example, comenzar. </li><br>
+<li>If you leave the read-write loop, simply type begin. (or the equivalent statement in your program), hit enter, type the action code for the last action you took, and hit enter. </li><br>
+<li>The start screen will only appear when the program is consulted for the first time in a new instance of SWI-Prolog. If you consult the program, see the welcome message, make a change to the code and then reload the modified file, you will not see the start screen's message again. You must close SWI-Prolog and re-open it. </li><br>
+<li>The start screen also will not appear if you access your program by clicking on the file and having SWI-Prolog appear. You must open SWI-Prolog and select Consult > File > your file's name. </li>
+</ul>
+
+<br><br><div class="center">Happy creating!</div>
+	</body>
+</html>
+
